@@ -81,5 +81,40 @@ namespace movies_api.Controllers
                 }
 
         }
+
+
+        [Route("[action]/{rating}")]
+        [HttpGet("GetTopRated")]
+        public ActionResult GetTopRated(int rating)
+        {
+            try
+            {
+                return Ok(context.Movie.Select(m =>
+                new
+                {
+                    m.MovieId,
+                    m.Title,
+                    m.Year,
+                    m.Time,
+                    m.Genre,
+                    m.Director,
+                    m.Actors,
+                    m.Sinopsis,
+                    m.Portrait,
+                    m.Price,
+                    m.Rating
+
+                }).Where(m => m.Rating >= rating));
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+
     }
 }
