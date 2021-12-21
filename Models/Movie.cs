@@ -18,7 +18,7 @@ namespace movies_api.Models
         public string  Actors { get; set; }
         public string Sinopsis { get; set; }
         public string Portrait { get; set; }
-        public byte Starts { get; set; }
+        public byte Rating { get; set; }
         public decimal Price { get; set; }
     }
 }

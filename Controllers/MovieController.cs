@@ -32,7 +32,8 @@ namespace movies_api.Controllers
                     p.Actors,
                     p.Sinopsis,
                     p.Portrait,
-                    p.Price
+                    p.Price,
+                    p.Rating
 
                 }).ToList());
             }
@@ -41,6 +42,44 @@ namespace movies_api.Controllers
                 return BadRequest(ex.Message);
              
             }
+
+        }
+
+
+        [Route("[action]/{value}")]
+        [HttpGet("SearchBy")]
+        public ActionResult SearchBy(string value)
+        {
+            try
+            {
+                return Ok(context.Movie.Select(m =>
+                new
+                {
+                    m.MovieId,
+                    m.Title,
+                    m.Year,
+                    m.Time,
+                    m.Genre,
+                    m.Director,
+                    m.Actors,
+                    m.Sinopsis,
+                    m.Portrait,
+                    m.Price,
+                    m.Rating
+
+                }).Where(m => m.Genre.Contains(value) ||
+                m.Title.Contains(value) ||
+                m.Genre.Contains(value) ||
+                m.Director.Contains(value) ||
+                m.Actors.Contains(value)));
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+                }
+
         }
     }
 }
