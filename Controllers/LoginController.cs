@@ -35,10 +35,7 @@ namespace movies_api.Controllers
             {
                 token = "Token";
             }
-            else
-            {
-                return "Invalid User";
-            }
+            
 
 
             return Ok(token);
