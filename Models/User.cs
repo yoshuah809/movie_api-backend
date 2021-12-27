@@ -14,5 +14,9 @@ namespace movies_api.Models
         public string LastNAme { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
+        public List<Favorites> Favorites { get; set; }
+
+        public List<Cart> Cart { get; set; }
     }
 }

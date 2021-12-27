@@ -20,5 +20,9 @@ namespace movies_api.Models
         public string Portrait { get; set; }
         public byte Rating { get; set; }
         public decimal Price { get; set; }
+
+        public List<Favorites> Favorites { get; set; }
+
+        public List<Cart> Cart { get; set; }
     }
 }
